@@ -1,0 +1,6 @@
+Flask-MySQLPool
+===========
+
+Flask-MySQLPool allows you to access MySQL directly from your flask application
+using a thread safe connection pool
+

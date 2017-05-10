@@ -74,8 +74,6 @@ class MySQLPool(object):
         self.app = app
         if app is not None:
             self.init_app(app)
-        self.mysql_connpool = ConnectionPool(self.pool_size,
-                **self.connect_args)
 
     def init_app(self, app):
 
@@ -100,6 +98,9 @@ class MySQLPool(object):
         self.connect_args = dict()
         for k1, k2 in _argsmap:
             self.connect_args[k1] = self.app.config[k2]
+
+        self.mysql_connpool = ConnectionPool(self.pool_size,
+                **self.connect_args)
 
         if hasattr(app, 'teardown_appcontext'):
             app.teardown_appcontext(self.teardown)

@@ -124,7 +124,7 @@ class MySQLPool(object):
         self.log.debug('Getting a connection')
         ctx = stack.top
         if ctx is not None:
-            if not hasattr(ctx, 'current_connection') or not ctx.currect_connection:
+            if not hasattr(ctx, 'current_connection') or not ctx.current_connection:
                 ctx.current_connection = self.mysql_connpool.get()
             return ctx.current_connection
 

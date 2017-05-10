@@ -71,11 +71,11 @@ class MySQLPool(object):
     def __init__(self, app=None):
         self.log = logging.getLogger(self.__class__.__name__)
         self.log.warning('Initializing')
-        self.app = app
         if app is not None:
             self.init_app(app)
 
     def init_app(self, app):
+        self.app = app
 
         self.app.config.setdefault('MYSQL_POOL_SIZE', 0)
         self.app.config.setdefault('MYSQL_DATABASE_HOST', 'localhost')
